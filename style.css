@@ -10,3 +10,8 @@ hr {
     background: black;
     margin: 20px 0;
 }
+
+.centered {
+  display: flex;
+  justify-content: center;
+}

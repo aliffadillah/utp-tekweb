@@ -30,7 +30,7 @@
                         <a class="nav-link text-dark" href="#">About</a>
                     </li>
                     <li class="nav-item">
-                        <button type="button" class="btn btn-primary rounded-3" style="width: 142px; height: 43px; background-color: #829FEB; color: #000000;">Login</button>
+                        <a href="https://www.pornhub.com/" type="button" class="btn btn-primary rounded-3" style="width: 142px; height: 43px; background-color: #829FEB; color: #000000;">Login</a>
                     </li>
                     </ul>
             </div>
@@ -64,9 +64,69 @@
                     <input name="input_foto" class="form-control" type="file" id="formFile">
                 </div>
                 <div class="position-relative">
-                <button type="submit" class="btn btn-success position-absolute end-0">Simpan</button>
+                <button type="submit" class="btn btn-success position-absolute end-0">
+                    Simpan
+                </button>
             </div>
+            <br>
             </form>
+        </div>
+        <br>
+        <hr>
+        <div class="container">
+            <h3>Produk</h3>
+            <br>
+            <div class="row gap-5 d-flex justify-content-center">
+            <div class="card" style="width: 18rem;">
+                <img src="./foto_mobil/eqb_available-models_554-x-369.webp" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Mercedes Benz</h5>
+                    <p class="card-text">EQB Models</p>
+                    <p class="card-text">Rp 1.550.000.000</p>
+                    <div class="col gap-2 d-flex justify-content-center">
+                        <a type="button" class="btn btn-outline-primary" style="width: 150px">Update</a>
+                        <a type="button" class="btn btn-outline-danger" style="width: 150px">Delete</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="./foto_mobil/eqb_available-models_554-x-369.webp" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Mercedes Benz</h5>
+                    <p class="card-text">EQB Models</p>
+                    <p class="card-text">Rp 1.550.000.000</p>
+                    <div class="col gap-2 d-flex justify-content-center">
+                        <a type="button" class="btn btn-outline-primary" style="width: 150px">Update</a>
+                        <a type="button" class="btn btn-outline-danger" style="width: 150px">Delete</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="./kucing.JPEG" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Mercedes Benz</h5>
+                    <p class="card-text">EQB Models</p>
+                    <p class="card-text">Rp 1.550.000.000</p>
+                    <div class="col gap-2 d-flex justify-content-center">
+                        <a type="button" class="btn btn-outline-primary" style="width: 150px">Update</a>
+                        <a type="button" class="btn btn-outline-danger" style="width: 150px">Delete</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img src="./foto_mobil/eqb_available-models_554-x-369.webp" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Mercedes Benz</h5>
+                    <p class="card-text">EQB Models</p>
+                    <p class="card-text">Rp 1.550.000.000</p>
+                    <div class="col gap-2 d-flex justify-content-center">
+                        <a type="button" class="btn btn-outline-primary" style="width: 150px">Update</a>
+                        <a type="button" class="btn btn-outline-danger" style="width: 150px">Delete</a>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <br>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
