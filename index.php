@@ -13,6 +13,22 @@
 <body class="doppio-one-regular">
     <?php
         include 'connection.php';
+
+        if(isset($_POST['submit'])) {
+            $brand_mobil = $_POST['brand_mobil'];
+            $tipe_mobil = $_POST['tipe_mobil'];
+            $harga_mobil = $_POST['harga_mobil'];
+            
+            // Upload foto
+            $foto_name = $_FILES['input_foto']['name'];
+            $foto_tmp_name = $_FILES['input_foto']['tmp_name'];
+            $foto_dest = 'foto_mobil/' . $foto_name;
+            move_uploaded_file($foto_tmp_name, $foto_dest);
+
+            $query = "INSERT INTO product (brand_mobil, type_mobil, harga_mobil, foto_mobil) VALUES ('$brand_mobil', '$tipe_mobil', '$harga_mobil', '$foto_dest')";
+            $result = mysqli_query($conn, $query);
+
+        }
     ?>   
         <nav class="navbar">
             <div class="container">
@@ -30,7 +46,7 @@
                         <a class="nav-link text-dark" href="#">About</a>
                     </li>
                     <li class="nav-item">
-                        <a href="https://www.pornhub.com/" type="button" class="btn btn-primary rounded-3" style="width: 142px; height: 43px; background-color: #829FEB; color: #000000;">Login</a>
+                        <a href="#" type="button" class="btn btn-primary rounded-3" style="width: 142px; height: 43px; background-color: #829FEB; color: #000000;">Login</a>
                     </li>
                     </ul>
             </div>
@@ -39,7 +55,7 @@
         <div class="container">
             <h3>Masukkan Data</h3>
             <br>
-            <form method="post" action="registerHandling.php" class="container" enctype="multipart/form-data">
+            <form method="post" class="container" enctype="multipart/form-data">
                 <div class="row ms-5" style="margin-bottom: 10px;">
                     <label for="inputBrandMobil" class="col-sm-2 col-form-label">Brand Mobil</label>
                     <div class="col-sm-10"> 
@@ -64,7 +80,7 @@
                     <input name="input_foto" class="form-control" type="file" id="formFile">
                 </div>
                 <div class="position-relative">
-                <button type="submit" class="btn btn-success position-absolute end-0">
+                <button type="submit" name="submit" class="btn btn-success position-absolute end-0">
                     Simpan
                 </button>
             </div>
@@ -77,54 +93,25 @@
             <h3>Produk</h3>
             <br>
             <div class="row gap-5 d-flex justify-content-center">
-            <div class="card" style="width: 18rem;">
-                <img src="./foto_mobil/eqb_available-models_554-x-369.webp" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Mercedes Benz</h5>
-                    <p class="card-text">EQB Models</p>
-                    <p class="card-text">Rp 1.550.000.000</p>
-                    <div class="col gap-2 d-flex justify-content-center">
-                        <a type="button" class="btn btn-outline-primary" style="width: 150px">Update</a>
-                        <a type="button" class="btn btn-outline-danger" style="width: 150px">Delete</a>
-                    </div>
-                </div>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <img src="./foto_mobil/eqb_available-models_554-x-369.webp" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Mercedes Benz</h5>
-                    <p class="card-text">EQB Models</p>
-                    <p class="card-text">Rp 1.550.000.000</p>
-                    <div class="col gap-2 d-flex justify-content-center">
-                        <a type="button" class="btn btn-outline-primary" style="width: 150px">Update</a>
-                        <a type="button" class="btn btn-outline-danger" style="width: 150px">Delete</a>
-                    </div>
-                </div>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <img src="./kucing.JPEG" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Mercedes Benz</h5>
-                    <p class="card-text">EQB Models</p>
-                    <p class="card-text">Rp 1.550.000.000</p>
-                    <div class="col gap-2 d-flex justify-content-center">
-                        <a type="button" class="btn btn-outline-primary" style="width: 150px">Update</a>
-                        <a type="button" class="btn btn-outline-danger" style="width: 150px">Delete</a>
-                    </div>
-                </div>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <img src="./foto_mobil/eqb_available-models_554-x-369.webp" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Mercedes Benz</h5>
-                    <p class="card-text">EQB Models</p>
-                    <p class="card-text">Rp 1.550.000.000</p>
-                    <div class="col gap-2 d-flex justify-content-center">
-                        <a type="button" class="btn btn-outline-primary" style="width: 150px">Update</a>
-                        <a type="button" class="btn btn-outline-danger" style="width: 150px">Delete</a>
-                    </div>
-                </div>
-            </div>
+            <?php
+                $query = "SELECT * FROM product";
+                $result = mysqli_query($conn, $query);
+
+                while($row = mysqli_fetch_assoc($result)) {
+                    echo '<div class="card" style="width: 18rem;">';
+                    echo '<img src="' . $row['foto_mobil'] . '" class="card-img-top" alt="...">';
+                    echo '<div class="card-body">';
+                    echo '<h5 class="card-title">' . $row['brand_mobil'] . '</h5>';
+                    echo '<p class="card-text">' . $row['type_mobil'] . '</p>';
+                    echo '<p class="card-text">Rp ' . $row['harga_mobil'] . '</p>';
+                    echo '<div class="col gap-2 d-flex justify-content-center">';
+                    echo '<a type="button" class="btn btn-outline-primary" style="width: 150px">Update</a>';
+                    echo '<a type="button" class="btn btn-outline-danger" style="width: 150px">Delete</a>';
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</div>';
+                }
+            ?>
             </div>
             <br>
         </div>
