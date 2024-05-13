@@ -99,7 +99,7 @@
                     <input name="harga_mobil" type="text" class="form-control" placeholder="Masukkan Harga Mobil" style="background-color:#F4EDED">
                 </div>
             </div>
-            <input type="hidden" name="MAX_FILE_SIZE" value="2000000">
+            <input type="hidden" name="MAX_FILE_SIZE" value="5000000">
             <div class="row ms-5" style="margin-bottom: 50px;">
                 <label for="formFile" class="form-label">Masukkan Foto</label>
                 <input name="input_foto" class="form-control" type="file" id="formFile">
@@ -132,7 +132,7 @@
                     echo '<p class="card-text">' . $row['type_mobil'] . '</p>';
                     echo '<p class="card-text">Rp ' . $row['harga_mobil'] . '</p>';
                     echo '<div class="col gap-2 d-flex justify-content-center">';
-                    echo '<a type="button" class="btn btn-outline-primary" style="width: 150px">Update</a>';
+                    echo '<a href="update_form.php?id=' . $row['id'] . '" class="btn btn-outline-primary" style="width: 150px">Update</a>';
                     echo '<a href="?id=' . $row['id'] . '" onclick="return confirm(\'Anda yakin ingin menghapus data ini?\')" class="btn btn-outline-danger" style="width: 150px">Delete</a>';
                     echo '</div>';
                     echo '</div>';
