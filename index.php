@@ -132,7 +132,7 @@
                     echo '<p class="card-text">' . $row['type_mobil'] . '</p>';
                     echo '<p class="card-text">Rp ' . $row['harga_mobil'] . '</p>';
                     echo '<div class="col gap-2 d-flex justify-content-center">';
-                    echo '<a href="update_form.php?id=' . $row['id'] . '" class="btn btn-outline-primary" style="width: 150px">Update</a>';
+                    echo '<a href="update_form.php?id=' . $row['id'] . '" class="btn btn-outline-primary" style="width: 150px">Edit</a>';
                     echo '<a href="?id=' . $row['id'] . '" onclick="return confirm(\'Anda yakin ingin menghapus data ini?\')" class="btn btn-outline-danger" style="width: 150px">Delete</a>';
                     echo '</div>';
                     echo '</div>';

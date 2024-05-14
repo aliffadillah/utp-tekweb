@@ -1,7 +1,7 @@
 <?php
     include 'connection.php';
 
-    // Fetch data based on ID
+    
     if(isset($_GET['id'])) {
         $id = $_GET['id'];
         $query = "SELECT * FROM product WHERE id = $id";
@@ -9,7 +9,7 @@
         $row = mysqli_fetch_assoc($result);
     }
 
-    // Update data
+    
     if(isset($_POST['update'])) {
         $id = $_POST['id'];
         $brand_mobil = $_POST['brand_mobil'];
@@ -28,7 +28,7 @@
         }
     }
 ?>
-<!-- HTML form for update -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
