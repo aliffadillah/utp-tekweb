@@ -21,7 +21,7 @@
 
         if($result) {
             echo '<script>alert("Data berhasil diperbarui");</script>';
-            header("Location: index.php");
+            header("Location: product.php");
             exit();
         } else {
             echo '<script>alert("Gagal memperbarui data");</script>';

@@ -1,20 +1,42 @@
-.masukkan {
-    font-family: "Doppio One", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-
-  .jersey-25-charted-regular {
-    font-family: "Jersey 25 Charted", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-
-hr {
-    border: 0;
-    height: 2.5px;
-    background: black;
-    margin: 20px 0;
+.doppio-one-regular {
+  font-family: "Doppio One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
+.carousel-item img {
+  border-radius: 50%; /* Membuat gambar menjadi bulat */
+}
+
+hr {
+  border: 0;
+  height: 2.5px;
+  background: black;
+  margin: 20px 0;
+}
+
+.carousel-caption {
+  position: relative;
+  color: #fff; /* Warna teks putih */
+  background-color: rgba(0, 0, 0, 0.5); /* Latar belakang semi-transparan */
+}
+
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.video-container video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+}
