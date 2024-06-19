@@ -8,11 +8,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Doppio+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/wheelscape_1/style.css">
 </head>
 <body class="doppio-one-regular">
     <?php
-        include 'connection.php';
+        include '../connection.php';
 
         // Proses form input
         if(isset($_POST['submit'])) {
@@ -31,7 +31,7 @@
 
             if($result) {
                 echo '<script>alert("Data berhasil disimpan");</script>';
-                header("Location: product.php");
+                header("Location: input.php");
                 exit();
             } else {
                 echo '<script>alert("Data gagal disimpan");</script>';
@@ -56,7 +56,7 @@
     <nav class="navbar">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="./Wheelscape.png" alt="Wheelscape" width="150">
+                <img src="/wheelscape_1/assets/icon/Logo1.svg" alt="Wheelscape" width="150">
             </a>
             <ul class="nav justify-content-end grid gap-5">
                 <li class="nav-item">
@@ -114,6 +114,33 @@
     </div>
     <br>
     <hr>
+    <br>
+    <div class="container">
+        <h3>Produk</h3>
+        <br>
+        <div class="row gap-5 d-flex justify-content-center">
+            <?php
+                $query = "SELECT * FROM product";
+                $result = mysqli_query($conn, $query);
+
+                while($row = mysqli_fetch_assoc($result)) {
+                    echo '<div class="card" style="width: 18rem;">';
+                    echo '<img src="' . $row['foto_mobil'] . '" class="card-img-top" alt="...">';
+                    echo '<div class="card-body">';
+                    echo '<h5 class="card-title">' . $row['brand_mobil'] . '</h5>';
+                    echo '<p class="card-text">' . $row['type_mobil'] . '</p>';
+                    echo '<p class="card-text">Rp ' . $row['harga_mobil'] . '</p>';
+                    echo '<div class="col gap-2 d-flex justify-content-center">';
+                    echo '<a href="update_form.php?id=' . $row['id'] . '" class="btn btn-outline-primary" style="width: 150px">Edit</a>';
+                    echo '<a href="?id=' . $row['id'] . '" onclick="return confirm(\'Anda yakin ingin menghapus data ini?\')" class="btn btn-outline-danger" style="width: 150px">Delete</a>';
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</div>';
+                }
+            ?>
+        </div>
+        <br>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

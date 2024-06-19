@@ -1,5 +1,5 @@
 <?php
-    include 'connection.php';
+    include '../connection.php';
 
     
     if(isset($_GET['id'])) {
@@ -40,14 +40,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Doppio+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/wheelscape_1/style.css">
 </head>
 </head>
 <body class="doppio-one-regular">
 <nav class="navbar">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="./Wheelscape.png" alt="Wheelscape" width="150">
+                <img src="/wheelscape_1/assets/icon/Logo1.svg" alt="Wheelscape" width="150">
             </a>
             <ul class="nav justify-content-end grid gap-5">
                 <li class="nav-item">

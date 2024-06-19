@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Doppio+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
 
     <style>
         .carousel-item img {
@@ -23,7 +23,7 @@
 </head>
 <body class="doppio-one-regular">
     <?php
-        include 'connection.php';
+        include '../connection.php';
 
         // Proses form input
         if(isset($_POST['submit'])) {
@@ -67,14 +67,14 @@
     <nav class="navbar">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="Logo1.png" alt="Wheelscape" width="150">
+                <img src="../assets/icon/Logo1.svg" alt="Wheelscape" width="150">
             </a>
             <ul class="nav justify-content-end grid gap-5">
                 <li class="nav-item">
-                    <a class="nav-link text-dark" aria-current="page" href="main.php">Home</a>
+                    <a class="nav-link text-dark" aria-current="page" href="/wheelscape_1/index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="product.php">Product</a>
+                    <a class="nav-link text-dark" href="/product.php">Product</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-dark" href="#">About</a>
@@ -107,6 +107,7 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
+    <br>
     <div class="container">
         <h3>Produk</h3>
         <br>

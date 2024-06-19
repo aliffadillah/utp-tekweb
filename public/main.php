@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Doppio+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="style.css">
     <style>
         html, body {
             margin: 0;
@@ -47,25 +47,25 @@
 </head>
 <body class="doppio-one-regular">
     <?php
-        include 'connection.php';
+        include './connection.php';
     ?>
     <nav class="navbar">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="./Logo2.png" alt="Wheelscape" width="150">
+                <img src="assets/icon/Logo2.svg" alt="Wheelscape" width="150">
             </a>
             <ul class="nav justify-content-end grid gap-5">
                 <li class="nav-item">
-                    <a class="nav-link text-white" aria-current="page" href="main.php">Home</a>
+                    <a class="nav-link text-white" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="./product.php">Product</a>
+                    <a class="nav-link text-white" href="public\product.php">Product</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="#">About</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" type="button" class="btn btn-primary rounded-3" style="width: 142px; height: 43px; background-color: #829FEB; color: #000000;">Login</a>
+                    <a href="/wheelscape_1/public/login.php" type="button" class="btn btn-primary rounded-3" style="width: 142px; height: 43px; background-color: #829FEB; color: #000000;">Login</a>
                 </li>
             </ul>
         </div>
