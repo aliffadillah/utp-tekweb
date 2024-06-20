@@ -12,6 +12,14 @@ if(isset($_POST['submit'])) {
     $brand_mobil = $_POST['brand_mobil'];
     $tipe_mobil = $_POST['tipe_mobil'];
     $harga_mobil = $_POST['harga_mobil'];
+    $kilometer = $_POST['km_mobil'];
+    $transmisi = $_POST['transmisi_mobil'];
+    $lokasi_mobil = $_POST['lokasi_mobil'];
+    $bahan_bakar = $_POST['bahan_bakar'];
+    $jumlah_kursi = $_POST['jumlah_kursi'];
+    $kepemilikan = $_POST['kepemilikan'];
+    $warna_mobil = $_POST['warna_mobil'];
+    $tahun_mobil = $_POST['tahun_mobil'];    
     
     // Upload foto
     $foto_name = $_FILES['input_foto']['name'];
@@ -19,7 +27,7 @@ if(isset($_POST['submit'])) {
     $foto_dest = 'foto_mobil/' . $foto_name;
     move_uploaded_file($foto_tmp_name, $foto_dest);
 
-    $query = "INSERT INTO product (brand_mobil, type_mobil, harga_mobil, foto_mobil) VALUES ('$brand_mobil', '$tipe_mobil', '$harga_mobil', '$foto_dest')";
+    $query = "INSERT INTO product (brand_mobil, type_mobil, harga_mobil, kilometer, transmisi, lokasi_mobil, bahan_bakar, jumlah_kursi, kepemilikan, warna_mobil, tahun_mobil, foto_mobil) VALUES ('$brand_mobil', '$tipe_mobil', '$harga_mobil', '$kilometer', '$transmisi', '$lokasi_mobil', '$bahan_bakar', '$jumlah_kursi', '$kepemilikan', '$warna_mobil', '$tahun_mobil', '$foto_dest')";
     $result = mysqli_query($conn, $query);
 
     if($result) {
@@ -66,23 +74,32 @@ if(isset($_GET['id'])) {
             </a>
             <ul class="nav justify-content-end grid gap-5">
                 <li class="nav-item">
-                    <a class="nav-link text-dark" aria-current="page" href="main.php">Home</a>
+                    <a class="nav-link text-dark" aria-current="page" href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="product.php">Product</a>
+                    <a class="nav-link text-dark" href="product_admin.php">Product</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-dark" href="#">About</a>
                 </li>
-                <li class="nav-item">
-                    <a href="#" type="button" class="btn btn-primary rounded-3" style="width: 142px; height: 43px; background-color: #829FEB; color: #000000;">Login</a>
+                <li class="nav-item dropdown">
+                    <?php if(isset($_SESSION['nama'])): ?>
+                        <a class="btn btn-primary dropdown-toggle rounded-3" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" style="width: 142px; height: 43px; background-color: #829FEB; color: #000000;">
+                            <?php echo htmlspecialchars($_SESSION['nama']); ?>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <li><a class="dropdown-item" href="profile.php">Profile</a></li>
+                            <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                        </ul>
+                    <?php else: ?>
+                        <a href="login.php" class="btn btn-primary rounded-3" style="width: 142px; height: 43px; background-color: #829FEB; color: #000000;">Login</a>
+                    <?php endif; ?>
                 </li>
             </ul>
         </div>
     </nav>
-
     <hr>
-    
+
     <div class="container">
         <h3>Masukkan Data</h3>
         <br>
@@ -103,6 +120,54 @@ if(isset($_GET['id'])) {
                 <label for="inputHargaMobil" class="col-sm-2 col-form-label">Harga Mobil</label>
                 <div class="col-sm-10"> 
                     <input name="harga_mobil" type="text" class="form-control" placeholder="Masukkan Harga Mobil" style="background-color:#F4EDED">
+                </div>
+            </div>
+            <div class="row ms-5" style="margin-bottom: 10px;">
+                <label for="inputKilometer" class="col-sm-2 col-form-label">Jumlah Kilometer</label>
+                <div class="col-sm-10"> 
+                    <input name="km_mobil" type="text" class="form-control" placeholder="Masukkan Kilometer Mobil" style="background-color:#F4EDED">
+                </div>
+            </div>
+            <div class="row ms-5" style="margin-bottom: 10px;">
+                <label for="inputTransmisi" class="col-sm-2 col-form-label">Transmisi</label>
+                <div class="col-sm-10"> 
+                    <input name="transmisi_mobil" type="text" class="form-control" placeholder="Masukkan Transmisi Mobil" style="background-color:#F4EDED">
+                </div>
+            </div>
+            <div class="row ms-5" style="margin-bottom: 10px;">
+                <label for="inputLokasiMobil" class="col-sm-2 col-form-label">Lokasi</label>
+                <div class="col-sm-10"> 
+                    <input name="lokasi_mobil" type="text" class="form-control" placeholder="Masukkan Lokasi Mobil" style="background-color:#F4EDED">
+                </div>
+            </div>
+            <div class="row ms-5" style="margin-bottom: 10px;">
+                <label for="inputBahanBakar" class="col-sm-2 col-form-label">Bahan Bakar</label>
+                <div class="col-sm-10"> 
+                    <input name="bahan_bakar" type="text" class="form-control" placeholder="Masukkan Bahan Bakar Mobil" style="background-color:#F4EDED">
+                </div>
+            </div>
+            <div class="row ms-5" style="margin-bottom: 10px;">
+                <label for="inputJumlahKursi" class="col-sm-2 col-form-label">Jumlah Kursi</label>
+                <div class="col-sm-10"> 
+                    <input name="jumlah_kursi" type="text" class="form-control" placeholder="Masukkan Jumlah Kursi Mobil" style="background-color:#F4EDED">
+                </div>
+            </div>
+            <div class="row ms-5" style="margin-bottom: 10px;">
+                <label for="inputKepemilikan" class="col-sm-2 col-form-label">Kepemilikan</label>
+                <div class="col-sm-10"> 
+                    <input name="kepemilikan" type="text" class="form-control" placeholder="Masukkan Kepemilikan" style="background-color:#F4EDED">
+                </div>
+            </div>
+            <div class="row ms-5" style="margin-bottom: 10px;">
+                <label for="inputWarnaMobil" class="col-sm-2 col-form-label">Warna Mobil</label>
+                <div class="col-sm-10"> 
+                    <input name="warna_mobil" type="text" class="form-control" placeholder="Masukkan Warna Mobil" style="background-color:#F4EDED">
+                </div>
+            </div>
+            <div class="row ms-5" style="margin-bottom: 10px;">
+                <label for="inputTahunMobil" class="col-sm-2 col-form-label">Tahun Mobil</label>
+                <div class="col-sm-10"> 
+                    <input name="tahun_mobil" type="text" class="form-control" placeholder="Masukkan Tahun Mobil" style="background-color:#F4EDED">
                 </div>
             </div>
             <input type="hidden" name="MAX_FILE_SIZE" value="5000000">

@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($user && password_verify($password, $user['password'])) {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['role'] = $user['role'];
-        $_SESSION['nama'] = $user['nama'];  // Menyimpan nama pengguna dalam sesi
+        $_SESSION['nama'] = $user['nama'];
 
         if ($user['role'] == 'admin') {
             header("Location: product_admin.php");
@@ -27,12 +27,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="author" content="Muhamad Nauval Azhar">
+    <meta name="author" content="Wheelscape - Login">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="description" content="This is a login page template based on Bootstrap 5">
     <title>Wheelscape - Login</title>
@@ -65,12 +64,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 </div>
 
                                 <div class="mb-3">
-                                    <div class="mb-2 w-100">
-                                        <label class="text-muted" for="password">Password</label>
-                                        <a href="forgot.html" class="float-end">
-                                            Forgot Password?
-                                        </a>
-                                    </div>
                                     <input id="password" type="password" class="form-control" name="password" required>
                                     <div class="invalid-feedback">
                                         Password is required
@@ -78,10 +71,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 </div>
 
                                 <div class="d-flex align-items-center">
-                                    <div class="form-check">
-                                        <input type="checkbox" name="remember" id="remember" class="form-check-input">
-                                        <label for="remember" class="form-check-label">Remember Me</label>
-                                    </div>
                                     <button type="submit" class="btn btn-primary ms-auto">
                                         Login
                                     </button>
@@ -95,13 +84,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>
                     </div>
                     <div class="text-center mt-5 text-muted">
-                        Copyright &copy; 2017-2021 &mdash; Your Company 
+                        Copyright &copy; 2024 &mdash; Wheelscape 
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <script src="js/login.js"></script>
 </body>
 </html>

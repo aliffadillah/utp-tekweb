@@ -2,12 +2,12 @@
 include '../connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = mysqli_real_escape_string($conn, $_POST['nama']);
+    $nama = mysqli_real_escape_string($conn, $_POST['nama']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    $query = "INSERT INTO users (nama, email, password, role) VALUES ('$nana', '$email', '$hashed_password', 'user')";
+    $query = "INSERT INTO users (nama, email, password, role) VALUES ('$nama', '$email', '$hashed_password', 'user')";
     if (mysqli_query($conn, $query)) {
         echo '<script>alert("Registration successful. Please login.");</script>';
         echo '<script>window.location.href="login.php";</script>';
@@ -41,8 +41,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <h1 class="fs-4 card-title fw-bold mb-4">Daftar Akun</h1>
                             <form method="POST" class="needs-validation" novalidate="" autocomplete="off">
                                 <div class="mb-3">
-                                    <label class="mb-2 text-muted" for="name">Nama</label>
-                                    <input id="name" type="text" class="form-control" name="name" value="" required autofocus>
+                                    <label class="mb-2 text-muted" for="nama">Nama</label>
+                                    <input id="nama" type="text" class="form-control" name="nama" value="" required autofocus>
                                     <div class="invalid-feedback">
                                         Nama dibutuhkan
                                     </div>
@@ -83,7 +83,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
     </section>
-
-    <script src="js/login.js"></script>
 </body>
 </html>
