@@ -20,23 +20,3 @@ hr {
   color: #fff; /* Warna teks putih */
   background-color: rgba(0, 0, 0, 0.5); /* Latar belakang semi-transparan */
 }
-
-.video-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: -1;
-}
-
-.video-container video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transform: translate(-50%, -50%);
-}

@@ -1,3 +1,51 @@
+<?php
+session_start();
+if ($_SESSION['role'] != 'admin') {
+    header("Location: login.php");
+    exit();
+}
+
+include '../connection.php';
+
+// Proses form input
+if(isset($_POST['submit'])) {
+    $brand_mobil = $_POST['brand_mobil'];
+    $tipe_mobil = $_POST['tipe_mobil'];
+    $harga_mobil = $_POST['harga_mobil'];
+    
+    // Upload foto
+    $foto_name = $_FILES['input_foto']['name'];
+    $foto_tmp_name = $_FILES['input_foto']['tmp_name'];
+    $foto_dest = 'foto_mobil/' . $foto_name;
+    move_uploaded_file($foto_tmp_name, $foto_dest);
+
+    $query = "INSERT INTO product (brand_mobil, type_mobil, harga_mobil, foto_mobil) VALUES ('$brand_mobil', '$tipe_mobil', '$harga_mobil', '$foto_dest')";
+    $result = mysqli_query($conn, $query);
+
+    if($result) {
+        echo '<script>alert("Data berhasil disimpan");</script>';
+        header("Location: product_admin.php");
+        exit();
+    } else {
+        echo '<script>alert("Data gagal disimpan");</script>';
+    }
+}
+
+// Proses penghapusan data
+if(isset($_GET['id'])) {
+    $delete_id = $_GET['id'];
+    $query = "DELETE FROM product WHERE id = $delete_id";
+    $result = mysqli_query($conn, $query);
+
+    if($result) {
+        echo '<script>alert("Data berhasil dihapus");</script>';
+        echo '<script>window.location.href="product_admin.php";</script>';
+    } else {
+        echo '<script>alert("Data gagal dihapus");</script>';
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,48 +59,6 @@
     <link rel="stylesheet" href="/wheelscape_1/style.css">
 </head>
 <body class="doppio-one-regular">
-    <?php
-        include '../connection.php';
-
-        // Proses form input
-        if(isset($_POST['submit'])) {
-            $brand_mobil = $_POST['brand_mobil'];
-            $tipe_mobil = $_POST['tipe_mobil'];
-            $harga_mobil = $_POST['harga_mobil'];
-            
-            // Upload foto
-            $foto_name = $_FILES['input_foto']['name'];
-            $foto_tmp_name = $_FILES['input_foto']['tmp_name'];
-            $foto_dest = 'foto_mobil/' . $foto_name;
-            move_uploaded_file($foto_tmp_name, $foto_dest);
-
-            $query = "INSERT INTO product (brand_mobil, type_mobil, harga_mobil, foto_mobil) VALUES ('$brand_mobil', '$tipe_mobil', '$harga_mobil', '$foto_dest')";
-            $result = mysqli_query($conn, $query);
-
-            if($result) {
-                echo '<script>alert("Data berhasil disimpan");</script>';
-                header("Location: input.php");
-                exit();
-            } else {
-                echo '<script>alert("Data gagal disimpan");</script>';
-            }
-        }
-
-        // Proses penghapusan data
-        if(isset($_GET['id'])) {
-            $delete_id = $_GET['id'];
-            $query = "DELETE FROM product WHERE id = $delete_id";
-            $result = mysqli_query($conn, $query);
-
-            if($result) {
-                echo '<script>alert("Data berhasil dihapus");</script>';
-                echo '<script>window.location.href="product.php";</script>';
-            } else {
-                echo '<script>alert("Data gagal dihapus");</script>';
-            }
-        }
-    ?>   
-
     <nav class="navbar">
         <div class="container">
             <a class="navbar-brand" href="#">
