@@ -24,33 +24,38 @@
     </style>
 </head>
 <body class="doppio-one-regular">
-    <nav class="navbar">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="../assets/icon/Logo1.svg" alt="Wheelscape" width="150">
-            </a>
-            <ul class="nav justify-content-end grid gap-5">
-                <li class="nav-item">
-                    <a class="nav-link text-dark" aria-current="page" href="/wheelscape_1/index.php">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="/product.php">Product</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                    <?php if(isset($_SESSION['nama'])): ?>
-                        <a href="profile.php" class="btn btn-primary rounded-3" style="width: 142px; height: 43px; background-color: #829FEB; color: #000000;">
-                            <?php echo htmlspecialchars($_SESSION['nama']); ?>
-                        </a>
-                    <?php else: ?>
-                        <a href="login.php" class="btn btn-primary rounded-3" style="width: 142px; height: 43px; background-color: #829FEB; color: #000000;">Login</a>
-                    <?php endif; ?>
-                </li>
-            </ul>
-        </div>
-    </nav>
+<nav class="navbar">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="/wheelscape_1/assets/icon/Logo1.svg" alt="Wheelscape" width="150">
+        </a>
+        <ul class="nav justify-content-end grid gap-5">
+            <li class="nav-item">
+                <a class="nav-link text-dark" aria-current="page" href="main.php">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" href="product.php">Product</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" href="#">About</a>
+            </li>
+            <li class="nav-item dropdown">
+                <?php if(isset($_SESSION['nama'])): ?>
+                    <a class="btn btn-primary dropdown-toggle rounded-3" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" style="width: 142px; height: 43px; background-color: #829FEB; color: #000000;">
+                        <?php echo htmlspecialchars($_SESSION['nama']); ?>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li><a class="dropdown-item" href="profile.php">Profile</a></li>
+                        <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                    </ul>
+                <?php else: ?>
+                    <a href="login.php" class="btn btn-primary rounded-3" style="width: 142px; height: 43px; background-color: #829FEB; color: #000000;">Login</a>
+                <?php endif; ?>
+            </li>
+        </ul>
+    </div>
+</nav>
+
     <br>
     <div id="carouselExampleInterval" class="carousel slide container" data-bs-ride="carousel">
         <div class="carousel-inner">
