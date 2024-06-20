@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    include '../connection.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,61 +14,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Doppio+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
-
     <style>
         .carousel-item img {
             border-radius: 8px; /* Membuat gambar menjadi bulat */
         }
-
         .navbar {
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Menambahkan shadow pada navbar */
         }
     </style>
-    
 </head>
 <body class="doppio-one-regular">
-    <?php
-        include '../connection.php';
-
-        // Proses form input
-        if(isset($_POST['submit'])) {
-            $brand_mobil = $_POST['brand_mobil'];
-            $tipe_mobil = $_POST['tipe_mobil'];
-            $harga_mobil = $_POST['harga_mobil'];
-            
-            // Upload foto
-            $foto_name = $_FILES['input_foto']['name'];
-            $foto_tmp_name = $_FILES['input_foto']['tmp_name'];
-            $foto_dest = 'foto_mobil/' . $foto_name;
-            move_uploaded_file($foto_tmp_name, $foto_dest);
-
-            $query = "INSERT INTO product (brand_mobil, type_mobil, harga_mobil, foto_mobil) VALUES ('$brand_mobil', '$tipe_mobil', '$harga_mobil', '$foto_dest')";
-            $result = mysqli_query($conn, $query);
-
-            if($result) {
-                echo '<script>alert("Data berhasil disimpan");</script>';
-                header("Location: product.php");
-                exit();
-            } else {
-                echo '<script>alert("Data gagal disimpan");</script>';
-            }
-        }
-
-        // Proses penghapusan data
-        if(isset($_GET['id'])) {
-            $delete_id = $_GET['id'];
-            $query = "DELETE FROM product WHERE id = $delete_id";
-            $result = mysqli_query($conn, $query);
-
-            if($result) {
-                echo '<script>alert("Data berhasil dihapus");</script>';
-                echo '<script>window.location.href="product.php";</script>';
-            } else {
-                echo '<script>alert("Data gagal dihapus");</script>';
-            }
-        }
-    ?>   
-
     <nav class="navbar">
         <div class="container">
             <a class="navbar-brand" href="#">
@@ -80,7 +40,13 @@
                     <a class="nav-link text-dark" href="#">About</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" type="button" class="btn btn-primary rounded-3" style="width: 142px; height: 43px; background-color: #829FEB; color: #000000;">Login</a>
+                    <?php if(isset($_SESSION['nama'])): ?>
+                        <a href="profile.php" class="btn btn-primary rounded-3" style="width: 142px; height: 43px; background-color: #829FEB; color: #000000;">
+                            <?php echo htmlspecialchars($_SESSION['nama']); ?>
+                        </a>
+                    <?php else: ?>
+                        <a href="login.php" class="btn btn-primary rounded-3" style="width: 142px; height: 43px; background-color: #829FEB; color: #000000;">Login</a>
+                    <?php endif; ?>
                 </li>
             </ul>
         </div>
