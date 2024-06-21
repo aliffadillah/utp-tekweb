@@ -34,8 +34,8 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Doppio+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css">
-    <style>
+    <link rel="stylesheet" href="https://firebasestorage.googleapis.com/v0/b/prakgabungan.appspot.com/o/style%2Fstyle.css?alt=media&token=27f48715-aa0b-470d-88f2-d7d558b5f50d">
+    <!-- <style>
         .flex-container {
             display: flex;
             align-items: flex-start; /* Align items to the top of the flex container */
@@ -69,7 +69,7 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])) {
         .btn-custom {
             color: black !important; /* Set text color to black */
         }
-    </style>
+    </style> -->
 </head>
 <body class="doppio-one-regular">
 <nav class="navbar">
@@ -85,7 +85,7 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])) {
                 <a class="nav-link text-dark" href="product.php">Product</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark" href="#">About</a>
+                <a class="nav-link text-dark" href="aboutus.php">About</a>
             </li>
             <li class="nav-item dropdown">
                 <?php if(isset($_SESSION['nama'])): ?>

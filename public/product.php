@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="../style.css">
     <style>
         .carousel-item img {
-            border-radius: 8px; /* Membuat gambar menjadi bulat */
+            border-radius: 8px; 
         }
         .navbar {
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Menambahkan shadow pada navbar */
@@ -108,4 +108,3 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
-

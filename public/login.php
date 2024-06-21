@@ -59,14 +59,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <label class="mb-2 text-muted" for="email">E-Mail Address</label>
                                     <input id="email" type="email" class="form-control" name="email" value="" required autofocus>
                                     <div class="invalid-feedback">
-                                        Email is invalid
+                                        Email salah
                                     </div>
                                 </div>
 
                                 <div class="mb-3">
                                     <input id="password" type="password" class="form-control" name="password" required>
                                     <div class="invalid-feedback">
-                                        Password is required
+                                        Password dibutuhkan
                                     </div>
                                 </div>
 
@@ -79,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>
                         <div class="card-footer py-3 border-0">
                             <div class="text-center">
-                                Don't have an account? <a href="\wheelscape_1\public\register.php" class="text-dark">Create One</a>
+                                Tidak memiliki akun? <a href="/wheelscape_1/public/register.php" class="text-dark">Buat Sekarang!</a>
                             </div>
                         </div>
                     </div>

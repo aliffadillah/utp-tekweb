@@ -5,7 +5,7 @@
 }
 
 .carousel-item img {
-  border-radius: 50%; /* Membuat gambar menjadi bulat */
+  border-radius: 50px; /* Membuat gambar menjadi bulat */
 }
 
 hr {
