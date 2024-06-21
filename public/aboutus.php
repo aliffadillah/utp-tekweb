@@ -14,7 +14,7 @@
             border-radius: 8px; 
         }
         .navbar {
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow to navbar */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
         .doppio-one-regular {
             font-family: 'Doppio One', sans-serif;
