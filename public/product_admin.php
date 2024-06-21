@@ -69,7 +69,7 @@ if(isset($_GET['id'])) {
 <body class="doppio-one-regular">
     <nav class="navbar">
         <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/wheelscape_1/index.php">
                 <img src="/wheelscape_1/assets/icon/Logo1.svg" alt="Wheelscape" width="150">
             </a>
             <ul class="nav justify-content-end grid gap-5">
@@ -187,7 +187,7 @@ if(isset($_GET['id'])) {
     <hr>
     <br>
     <div class="container">
-        <h3>Produk</h3>
+        <h3>Product</h3>
         <br>
         <div class="row gap-5 d-flex justify-content-center">
             <?php

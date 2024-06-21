@@ -35,46 +35,11 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Doppio+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://firebasestorage.googleapis.com/v0/b/prakgabungan.appspot.com/o/style%2Fstyle.css?alt=media&token=27f48715-aa0b-470d-88f2-d7d558b5f50d">
-    <!-- <style>
-        .flex-container {
-            display: flex;
-            align-items: flex-start; /* Align items to the top of the flex container */
-            gap: 20px; /* Adjust gap between image and text */
-        }
-        .flex-container img {
-            border-radius: 8px;
-            width: 750px;
-            height: 500px;
-            object-fit: cover; /* Ensures the image covers the specified dimensions */
-        }
-        .flex-container > div {
-            flex: 1; /* Allow the text container to grow */
-        }
-        .flex-container h2,
-        .flex-container p {
-            text-align: left; /* Align text to the left */
-            margin-top: 0; /* Remove default margin */
-        }
-        .card {
-            height: 75px;
-            width: 550px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .card p {
-            margin: 0.5rem; /* Adjust margin for better spacing */
-        }
-
-        .btn-custom {
-            color: black !important; /* Set text color to black */
-        }
-    </style> -->
 </head>
 <body class="doppio-one-regular">
 <nav class="navbar">
     <div class="container">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/wheelscape_1/index.php">
             <img src="/wheelscape_1/assets/icon/Logo1.svg" alt="Wheelscape" width="150">
         </a>
         <ul class="nav justify-content-end grid gap-5">
@@ -124,7 +89,7 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])) {
         <p style="text-align: left;">Registration Date : <?php echo $row['tahun_mobil']; ?></p>
         <br>
         <div class="container text-end">
-            <button type="button" class="btn btn-outline-warning btn-custom">Hubungi Kami</button>
+            <a href="https://wa.me/6285159375517" class="btn btn-outline-warning btn-custom">Hubungi Kami</a>
         </div>
     </div>
 </div>
