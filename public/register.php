@@ -1,21 +1,31 @@
 <?php
 include '../connection.php';
 
+$email_error = '';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nama = mysqli_real_escape_string($conn, $_POST['nama']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    $query = "INSERT INTO users (nama, email, password, role) VALUES ('$nama', '$email', '$hashed_password', 'user')";
-    if (mysqli_query($conn, $query)) {
-        echo '<script>alert("Registration successful. Please login.");</script>';
-        echo '<script>window.location.href="login.php";</script>';
+    $check_query = "SELECT * FROM users WHERE email = '$email'";
+    $check_result = mysqli_query($conn, $check_query);
+    if (mysqli_num_rows($check_result) > 0) {
+        $email_error = 'Email sudah terdaftar';
     } else {
-        echo '<script>alert("Registration failed. Email might be already registered.");</script>';
+        $query = "INSERT INTO users (nama, email, password, role) VALUES ('$nama', '$email', '$hashed_password', 'user')";
+        if (mysqli_query($conn, $query)) {
+            echo '<script>alert("Registration successful. Please login.");</script>';
+            echo '<script>window.location.href="login.php";</script>';
+        } else {
+            echo '<script>alert("Registration failed.");</script>';
+        }
     }
 }
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -50,10 +60,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                                 <div class="mb-3">
                                     <label class="mb-2 text-muted" for="email">E-Mail Address</label>
-                                    <input id="email" type="email" class="form-control" name="email" value="" required>
-                                    <div class="invalid-feedback">
-                                        Email salah
-                                    </div>
+                                    <input id="email" type="email" class="form-control <?php echo !empty($email_error) ? 'is-invalid' : ''; ?>" name="email" value="<?php echo isset($_POST['email']) ? $_POST['email'] : ''; ?>" required>
+                                    <?php if (!empty($email_error)): ?>
+                                        <div class="alert alert-danger mt-2">
+                                            <?php echo $email_error; ?>
+                                        </div>
+                                    <?php endif; ?>
                                 </div>
 
                                 <div class="mb-3">

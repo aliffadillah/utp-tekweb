@@ -80,7 +80,7 @@ if(isset($_GET['id'])) {
                     <a class="nav-link text-dark" href="product_admin.php">Product</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="#">About</a>
+                    <a class="nav-link text-dark" href="aboutus.php">About</a>
                 </li>
                 <li class="nav-item dropdown">
                     <?php if(isset($_SESSION['nama'])): ?>
@@ -88,7 +88,6 @@ if(isset($_GET['id'])) {
                             <?php echo htmlspecialchars($_SESSION['nama']); ?>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <li><a class="dropdown-item" href="profile.php">Profile</a></li>
                             <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                         </ul>
                     <?php else: ?>

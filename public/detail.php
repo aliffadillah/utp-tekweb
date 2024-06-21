@@ -58,7 +58,6 @@ if(isset($_GET['id']) && is_numeric($_GET['id'])) {
                         <?php echo htmlspecialchars($_SESSION['nama']); ?>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <li><a class="dropdown-item" href="profile.php">Profile</a></li>
                         <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                     </ul>
                 <?php else: ?>

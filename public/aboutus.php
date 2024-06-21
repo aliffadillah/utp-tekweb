@@ -71,23 +71,22 @@
     <div class="column gap-5 d-flex justify-content-center">
         <div class="card" style="width: 500px;">
             <div class="card-body">
-                <h5 class="card-title">Tentang Wheelscape</h5>
-                <p class="card-text">Wheelscape adalah showroom mobil terkemuka yang menyediakan berbagai pilihan mobil berkualitas dari berbagai merek ternama. Didirikan pada tahun 2024, kami berkomitmen untuk memberikan pengalaman terbaik dalam membeli mobil impian Anda.</p>
+                <h5 class="card-title text-center">Tentang Wheelscape</h5>
+                <p class="card-text text-secondary" style="text-align: justify;">Wheelscape adalah showroom mobil terkemuka yang menyediakan berbagai pilihan mobil berkualitas dari berbagai merek ternama. Didirikan pada tahun 2024, kami berkomitmen untuk memberikan pengalaman terbaik dalam membeli mobil impian Anda.</p>
             </div>
         </div>
         <div class="card" style="width: 500px;">
             <div class="card-body">
-                <h5 class="card-title">Visi Wheelscape</h5>
-                <p class="card-text">Menjadi showroom mobil terpercaya yang memberikan solusi transportasi terbaik bagi setiap pelanggan.</p>
+                <h5 class="card-title text-center">Visi Wheelscape</h5>
+                <p class="card-text text-secondary" style="text-align: justify;">Menjadi showroom mobil terkemuka yang dikenal karena kepercayaan dan kualitas layanan terbaik. Kami berkomitmen untuk menyediakan solusi transportasi yang inovatif dan memenuhi kebutuhan setiap pelanggan.</p>
             </div>
         </div>
         <div class="card" style="width: 500px;">
             <div class="card-body">
-                <h5 class="card-title">Misi Wheelscape</h5>
-                <p class="card-text">1. Menyediakan berbagai pilihan mobil berkualitas dengan harga kompetitif. </p>
-                <p class="card-text">2. Memberikan pelayanan pelanggan yang unggul dan personal.</p>
-                <p class="card-text">3. Meningkatkan kepuasan pelanggan melalui inovasi dan perbaikan berkelanjutan.</p>
-                <p class="card-text">4. Mendukung mobilitas masyarakat dengan menyediakan layanan purna jual yang handal.</p>
+                <h5 class="card-title text-center">Misi Wheelscape</h5>
+                <p class="card-text text-secondary" style="text-align: justify;">1. Menyediakan berbagai pilihan mobil berkualitas dengan harga kompetitif. </p>
+                <p class="card-text text-secondary" style="text-align: justify;">2. Memberikan pelayanan pelanggan yang unggul dan personal.</p>
+                <p class="card-text text-secondary" style="text-align: justify;">3. Meningkatkan kepuasan pelanggan melalui inovasi dan perbaikan berkelanjutan.</p>
             </div>
         </div>
     </div>
