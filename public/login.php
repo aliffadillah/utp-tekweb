@@ -2,27 +2,35 @@
 session_start();
 include '../connection.php';
 
+$error = '';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $query = "SELECT * FROM users WHERE email = '$email'";
-    $result = mysqli_query($conn, $query);
-    $user = mysqli_fetch_assoc($result);
-
-    if ($user && password_verify($password, $user['password'])) {
-        $_SESSION['user_id'] = $user['id'];
-        $_SESSION['role'] = $user['role'];
-        $_SESSION['nama'] = $user['nama'];
-
-        if ($user['role'] == 'admin') {
-            header("Location: product_admin.php");
-        } else {
-            header("Location: product.php");
-        }
-        exit();
+    if (empty($email)) {
+        $error = "Email dibutuhkan.";
+    } elseif (empty($password)) {
+        $error = "Password dibutuhkan.";
     } else {
-        $error = "Email atau kata sandi salah.";
+        $query = "SELECT * FROM users WHERE email = '$email'";
+        $result = mysqli_query($conn, $query);
+        $user = mysqli_fetch_assoc($result);
+
+        if ($user && password_verify($password, $user['password'])) {
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['role'] = $user['role'];
+            $_SESSION['nama'] = $user['nama'];
+
+            if ($user['role'] == 'admin') {
+                header("Location: product_admin.php");
+            } else {
+                header("Location: product.php");
+            }
+            exit();
+        } else {
+            $error = "Email atau kata sandi salah.";
+        }
     }
 }
 ?>
@@ -36,6 +44,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="description" content="This is a login page template based on Bootstrap 5">
     <title>Wheelscape - Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var form = document.querySelector("form.needs-validation");
+
+            form.addEventListener("submit", function(event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+
+                form.classList.add("was-validated");
+            }, false);
+        });
+    </script>
 </head>
 
 <body>
@@ -49,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="card shadow-lg">
                         <div class="card-body p-5">
                             <h1 class="fs-4 card-title fw-bold mb-4">Login</h1>
-                            <?php if (isset($error)): ?>
+                            <?php if ($error): ?>
                                 <div class="alert alert-danger">
                                     <?php echo $error; ?>
                                 </div>
@@ -59,11 +81,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <label class="mb-2 text-muted" for="email">E-Mail Address</label>
                                     <input id="email" type="email" class="form-control" name="email" value="" required autofocus>
                                     <div class="invalid-feedback">
-                                        Email salah
+                                        Email dibutuhkan
                                     </div>
                                 </div>
 
                                 <div class="mb-3">
+                                    <label class="mb-2 text-muted" for="password">Password</label>
                                     <input id="password" type="password" class="form-control" name="password" required>
                                     <div class="invalid-feedback">
                                         Password dibutuhkan
